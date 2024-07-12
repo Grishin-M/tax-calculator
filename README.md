@@ -1,8 +1,9 @@
-![nextjs-svgrepo-com](https://github.com/user-attachments/assets/6e65e8c6-dcca-4920-ad7f-ec575c436d3f)## Проект "Калькулятор НДФЛ 22%"
+## Проект "Калькулятор НДФЛ 22%"
 
 - Легко и просто рассчитайте НДФЛ, который вы платите
 
 ### Стэк
+<img src="https://github.com/user-attachments/assets/27a6fbe8-f4c6-4a35-80ce-cb852576ea78" width="200" />
 ![img1](https://github.com/user-attachments/assets/27a6fbe8-f4c6-4a35-80ce-cb852576ea78)
 ![img2](https://github.com/user-attachments/assets/cdbc9e73-1250-4972-95a3-fed5c5ffd0a1)
 ![img3](https://github.com/user-attachments/assets/5e390ac0-1b95-480e-85ea-5a8a603db003)

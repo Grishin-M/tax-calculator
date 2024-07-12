@@ -4,7 +4,7 @@ export const ImageLoadMonkey = () => {
 
   return (
     <Image
-      src="/monkeyCalculate.gif"
+      src="./monkeyCalculate.gif"
       width={500}
       height={500}
       alt="ImageLoadMonkey"

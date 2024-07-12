@@ -26,7 +26,6 @@ export type TTableData = {
 export type State = {
   wage: number
   isCalculate: boolean
-  isLoading: boolean
   beforeTax: boolean
   chartData: TChartData[]
   calculatedTax: number
@@ -43,7 +42,6 @@ export type State = {
 export const useStore = create<State>((set, get) => ({
   wage: 0,
   isCalculate: false,
-  isLoading: false,
   beforeTax: false,
   chartData: [
     { id: 'thirteenTax', browser: "НДФЛ 13%", visitors: 0, fill: "var(--color-chrome)" },

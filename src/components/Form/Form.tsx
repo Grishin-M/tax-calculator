@@ -7,13 +7,16 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { CheckboxWithText } from '../CheckBoxWithText/CheckBoxWithText'
 import { useStore } from '@/store/store'
 import { calculateTax } from '@/utils/calculateTax'
+import { formatter } from '@/utils/formatter'
 
 export const Form = () => {
   const wage = useStore(state => state.wage)
+  const isCalculate = useStore(state => state.isCalculate)
   const updateWage = useStore(state => state.updateWage)
   const updateSumOfTax = useStore(state => state.updateSumOfTax)
   const updateChartData = useStore(state => state.updateChartData)
   const updateTableData = useStore(state => state.updateTableData)
+  const updateCalculate = useStore(state => state.updateCalculate)
 
   const handleInputWage = (event: { target: { value: string } }) => {
     updateWage(event.target.value);
@@ -24,7 +27,13 @@ export const Form = () => {
     updateSumOfTax(calculated)
     updateChartData()
     updateTableData()
+    updateCalculate(true)
   }
+
+  const handleClear = () => {
+    updateCalculate(false)
+  }
+
   return (
     <Card className='flex flex-col justify-evenly'>
       <CardHeader>
@@ -35,15 +44,16 @@ export const Form = () => {
         <p>Введите вашу ежемесячную зарплату</p>
         <Input
           type="number"
-          placeholder={'123456'}
+          placeholder={formatter(100000)}
           required
           onChange={handleInputWage}
         />
         <CheckboxWithText />
       </CardContent>
-      <CardFooter>
+      <CardFooter className='flex gap-5'>
         <Button variant="default" size="lg" disabled={!wage} onClick={handleCalculate}>Рассчитать</Button>
+        <Button variant="default" size="lg" disabled={!isCalculate} onClick={handleClear}>Вернуть бухгалтера</Button>
       </CardFooter>
-    </Card>
+    </Card >
   )
 }

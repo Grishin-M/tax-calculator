@@ -14,6 +14,8 @@ import { Card } from '../ui/card'
 
 export function TaxTable() {
   const tableData = useStore(state => state.tableData)
+  const wage = useStore(state => state.wage)
+  const totalWagePerYear = wage * 12;
   return (
     <Card>
       <Table>
@@ -38,7 +40,7 @@ export function TaxTable() {
         <TableFooter>
           <TableRow>
             <TableCell colSpan={3}>Общая сумма на руки, после вычета НДФЛ</TableCell>
-            <TableCell className="text-right">999 999 999</TableCell>
+            <TableCell className="text-right">{totalWagePerYear}</TableCell>
           </TableRow>
         </TableFooter>
       </Table>

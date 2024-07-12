@@ -22,16 +22,14 @@ import { useStore } from '@/store/store'
 import { chartConfig } from '@/constants/constants'
 import { formatter } from '@/utils/formatter'
 
-export const Chart = ({
-  isLoading
-}: {
-  isLoading: boolean
-}) => {
+export const Chart = () => {
   const data = useStore(state => state.chartData)
   const calculatedTax = useStore(state => state.calculatedTax)
+  const isCalculate = useStore(state => state.isCalculate)
+
   const formatted = formatter(Number(calculatedTax));
 
-  if (isLoading) {
+  if (!isCalculate) {
     return (
       <Card className="flex flex-col items-center p-2.5">
         <ImageLoadMonkey />

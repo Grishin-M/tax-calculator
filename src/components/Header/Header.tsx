@@ -9,8 +9,8 @@ export const Header = () => {
       <CardHeader className='flex flex-row justify-between items-center'>
         <CardTitle className='flex gap-2 items-center'>
           <Logo
-            srcLight="/logoLight.svg"
-            srcDark="/logoDark.svg"
+            srcLight="./logoLight.svg"
+            srcDark="./logoDark.svg"
             width={41}
             height={59}
             alt="калькулятор"

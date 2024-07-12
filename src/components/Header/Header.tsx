@@ -5,7 +5,7 @@ import { Logo } from '../Logo/Logo'
 
 export const Header = () => {
   return (
-    <Card>
+    <Card className='w-full'>
       <CardHeader className='flex flex-row justify-between items-center'>
         <CardTitle className='flex gap-2 items-center'>
           <Logo

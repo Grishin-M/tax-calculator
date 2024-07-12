@@ -17,6 +17,7 @@ export const Form = () => {
   const updateChartData = useStore(state => state.updateChartData)
   const updateTableData = useStore(state => state.updateTableData)
   const updateCalculate = useStore(state => state.updateCalculate)
+  const updateCalculatedTax = useStore(state => state.updateCalculatedTax)
 
   const handleInputWage = (event: { target: { value: string } }) => {
     updateWage(event.target.value);
@@ -25,6 +26,7 @@ export const Form = () => {
   const handleCalculate = () => {
     const calculated = calculateTax(wage)
     updateSumOfTax(calculated)
+    updateCalculatedTax()
     updateChartData()
     updateTableData()
     updateCalculate(true)
@@ -35,7 +37,7 @@ export const Form = () => {
   }
 
   return (
-    <Card className='flex flex-col justify-evenly'>
+    <Card className='flex flex-col justify-evenly 2xl:p-0 xl:p-0 lg:p-0 md:p-0 sm:p-0'>
       <CardHeader>
         <CardTitle>Калькулятор НДФЛ</CardTitle>
         <CardDescription>Введи свою заработную плату, калькулятор произведет расчет и выведет сумму всего НДФЛ</CardDescription>

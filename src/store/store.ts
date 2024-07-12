@@ -37,6 +37,7 @@ export type State = {
   updateSumOfTax: (value: TCalculatedChartData) => void
   updateChartData: () => void
   updateTableData: () => void
+  updateCalculatedTax: () => void
 }
 
 export const useStore = create<State>((set, get) => ({
@@ -79,11 +80,11 @@ export const useStore = create<State>((set, get) => ({
     const date = get().calculatedChartData
     set({
       chartData: [
-        { id: 'thirteenTax', browser: "НДФЛ 13%", visitors: date.thirteenTax, fill: "var(--color-chrome)" },
-        { id: 'fifteenTax', browser: "НДФЛ 15%", visitors: date.fifteenTax, fill: "var(--color-safari)" },
-        { id: 'eighteenTax', browser: "НДФЛ 18%", visitors: date.eighteenTax, fill: "var(--color-firefox)" },
-        { id: 'twentyTax', browser: "НДФЛ 20%", visitors: date.twentyTax, fill: "var(--color-edge)" },
-        { id: 'twentyTwoTax', browser: "НДФЛ 22%", visitors: date.twentyTwoTax, fill: "var(--color-other)" },
+        { id: 'thirteenTax', browser: "НДФЛ 13% ", visitors: date.thirteenTax, fill: "var(--color-chrome)" },
+        { id: 'fifteenTax', browser: "НДФЛ 15% ", visitors: date.fifteenTax, fill: "var(--color-safari)" },
+        { id: 'eighteenTax', browser: "НДФЛ 18% ", visitors: date.eighteenTax, fill: "var(--color-firefox)" },
+        { id: 'twentyTax', browser: "НДФЛ 20% ", visitors: date.twentyTax, fill: "var(--color-edge)" },
+        { id: 'twentyTwoTax', browser: "НДФЛ 22% ", visitors: date.twentyTwoTax, fill: "var(--color-other)" },
       ]
     })
   },
@@ -98,5 +99,11 @@ export const useStore = create<State>((set, get) => ({
         { rate: '22%', beforeTax: '0', afterTax: '0', tax: formatter(date.twentyTwoTax) },
       ]
     })
-  }
+  },
+  updateCalculatedTax() {
+    const calculatedChartData = get().calculatedChartData
+    set({
+      calculatedTax: Object.values(calculatedChartData).reduce((acc, number) => acc + number) 
+    })
+  },
 }))

@@ -37,7 +37,7 @@ export const Form = () => {
   }
 
   return (
-    <Card className='flex flex-col justify-evenly 2xl:p-0 xl:p-0 lg:p-0 md:p-0 sm:p-0'>
+    <Card className='flex flex-col justify-evenly'>
       <CardHeader>
         <CardTitle>Калькулятор НДФЛ</CardTitle>
         <CardDescription>Введи свою заработную плату, калькулятор произведет расчет и выведет сумму всего НДФЛ</CardDescription>

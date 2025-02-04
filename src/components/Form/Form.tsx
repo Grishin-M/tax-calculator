@@ -12,6 +12,7 @@ import { formatter } from '@/utils/formatter'
 export const Form = () => {
   const wage = useStore(state => state.wage)
   const isCalculate = useStore(state => state.isCalculate)
+  const includeTax = useStore(state => state.includeTax)
   const updateWage = useStore(state => state.updateWage)
   const updateSumOfTax = useStore(state => state.updateSumOfTax)
   const updateChartData = useStore(state => state.updateChartData)
@@ -24,7 +25,7 @@ export const Form = () => {
   }
 
   const handleCalculate = () => {
-    const calculated = calculateTax(wage)
+    const calculated = calculateTax(wage, includeTax)
     updateSumOfTax(calculated)
     updateCalculatedTax()
     updateChartData()
@@ -50,7 +51,7 @@ export const Form = () => {
           required
           onChange={handleInputWage}
         />
-        <CheckboxWithText />
+        {/* <CheckboxWithText /> */}
       </CardContent>
       <CardFooter className='flex gap-5'>
         <Button variant="default" size="lg" disabled={!wage} onClick={handleCalculate}>Рассчитать</Button>

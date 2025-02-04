@@ -33,3 +33,8 @@ export const WAGE_YEAR_SUM_OF_TAX = {
   20: 50000000,
   22: 50000001
 }
+
+export const thirteenTax = WAGE_YEAR_SUM_OF_TAX[13] * 0.13
+export const fifteenTax = (WAGE_YEAR_SUM_OF_TAX[15] - WAGE_YEAR_SUM_OF_TAX[13]) * 0.15
+export const eighteenTax = (WAGE_YEAR_SUM_OF_TAX[18] - WAGE_YEAR_SUM_OF_TAX[15]) * 0.18
+export const twentyTax = (WAGE_YEAR_SUM_OF_TAX[20] - WAGE_YEAR_SUM_OF_TAX[18]) * 0.20

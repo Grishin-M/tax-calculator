@@ -10,12 +10,13 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { useStore } from '@/store/store'
+import { formatter } from '@/utils/formatter'
 import { Card } from '../ui/card'
 
 export function TaxTable() {
   const tableData = useStore(state => state.tableData)
-  const wage = useStore(state => state.wage)
-  const totalWagePerYear = wage * 12;
+  const { afterTax } = useStore(state => state.allOfTax)
+  const totalWagePerYear = Object.values(afterTax).reduce((acc, number) => acc + number);
   return (
     <Card>
       <Table>
@@ -40,7 +41,7 @@ export function TaxTable() {
         <TableFooter>
           <TableRow>
             <TableCell colSpan={3}>Общая сумма на руки, после вычета НДФЛ</TableCell>
-            <TableCell className="text-right">{totalWagePerYear}</TableCell>
+            <TableCell className="text-right">{formatter(totalWagePerYear)}</TableCell>
           </TableRow>
         </TableFooter>
       </Table>
